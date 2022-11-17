@@ -1,0 +1,35 @@
+# Recursive Function
+# global variables p and f
+p = 1.0
+f = 1.0
+def e(x, n):
+	global p, f
+	# Termination condition
+	if (n == 0):
+		return 1
+	# Recursive call
+	r = e(x, n - 1)
+	# Update the power of x
+	p = p * x
+	# Factorial
+	f = f * n
+	return (r + p / f)
+# Driver code
+x = 4
+n = 15
+print(e(x, n))
+
+#The value of the Exponential function can be calculated using Taylor Series. 
+e^x = 1 + x/1! + x^2/2! + x^3/3! + ...... + until n terms
+As the number of terms increases the more precise value of ex is obtained.
+To find e^x using the recursive function, we need to use static variables. A function can return only one value, and when we need to include multiple values in a recursive function, we use static variables. The Taylor Series is a combination of multiple values like sum, power and factorial term, hence we will use static variables.
+For the power of x, we will use p, and for factorials, we will use f as static variables. 
+Time Complexity: 
+To find this we will determine the total multiplication performed.
+e^x = 1 + x/1! + x^2/2! + x^3/3! + …… + until n terms
+So, for n terms total multiplication performed is comparable to sum of n natural numbers (as a parallel series of even numbers is formed).
+and we know sum of n natural numbers = n*(n+1)/2 whose order is n2
+Hence, the time complexity if this approach is O(n2)
+Auxiliary Space: 
+The recursive call will take place n+1 times and hence n + 1 activation records will get created at max. That shows the space complexity is O(n).
+
